@@ -1,4 +1,3 @@
-
 <section id="home" class="hero bg-cover bg-center min-h-screen md:h-[160vh] w-full flex flex-col justify-center items-center text-center px-6 py-20" 
      style="background-image: url('{{ asset('/storage/images/bg.webp') }}');">
     
