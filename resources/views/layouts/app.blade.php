@@ -36,11 +36,11 @@
 <body>
     <div id="app" class="flex min-h-screen">
         @include('partials.navbar')
-        <div class="">
+        <div class="w-[100vw]">
             @yield('content') {{-- Page-specific content --}}
         </div>
     </div>
-    
+
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>

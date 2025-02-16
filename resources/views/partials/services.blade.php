@@ -1,11 +1,12 @@
-<div class="px-20 py-4 space-y-14 font-raleway">
-    <div class="grid grid-cols-2 gap-10 justify-items-stretch">
-        <div class="justify-self-start" data-aos="fade-right">
-            <h2 class="font-[600] text-4xl leading-tight">
+<section id="services" class="px-4 md:px-20 py-4 space-y-14 font-raleway">
+    <!-- Header Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-stretch text-center md:text-left">
+        <div class="justify-self-center md:justify-self-start" data-aos="fade-right">
+            <h2 class="font-[600] text-3xl md:text-4xl leading-tight">
                 Delivering <br /> Exceptional Surveying Solutions
             </h2>
         </div>
-        <div class="justify-self-end align-middle" data-aos="fade-left">
+        <div class="justify-self-center md:justify-self-end md:text-left" data-aos="fade-left">
             <p class="font-normal text-sm text-gray-600">
                 We believe in the power of collaboration to shape a better, data-driven future. <br />
                 Our clients and partners are at the core of our mission, helping us drive accuracy, efficiency, and innovation in every project.
@@ -13,7 +14,7 @@
         </div>
     </div>
 
-    <hr>
+    <hr class="border-gray-300">
 
     @php
         $services = [
@@ -29,22 +30,25 @@
     @endphp
 
     @foreach ($services as $index => $service)
-        <div class="flex-col py-1 items-center" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-            <div class="grid grid-cols-3 gap-10 items-center">
-                <div>
-                    <img src="{{ asset('/storage/images/services/' . $service['image']) }}" class="rounded-2xl h-40 w-full object-cover object-top">
+        <div class="py-6" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <!-- Image -->
+                <div class="flex justify-center">
+                    <img src="{{ asset('/storage/images/services/' . $service['image']) }}" class="rounded-2xl h-40 w-full md:w-auto object-cover object-top">
                 </div>
-                <div>
-                    <h3 class="text-3xl font-raleway font-[600]">{{ $service['title'] }}</h3>
+                <!-- Title -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl md:text-3xl font-[600]">{{ $service['title'] }}</h3>
                 </div>
-                <div class="flex items-start space-x-2">
+                <!-- Description & Icon -->
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-2 text-center md:text-left">
                     <p class="text-sm text-gray-400">{{ $service['desc'] }}</p>
-                    <span class="border-[1px] rounded-full border-gray-300 hover:border-green-500 transition-all duration-400 transform hover:scale-110">
-                        <i class="fas fa-arrow-right text-gray-700 text-2xl bg-green-800 bg-clip-text text-transparent transition-all duration-600 p-3 hover:-rotate-45"></i>
+                    <span class="border-[1px] rounded-full border-gray-300 hover:border-green-500 transition-all duration-400 transform hover:scale-110 p-2">
+                        <i class="fas fa-arrow-right text-gray-700 text-xl transition-all duration-600 hover:-rotate-45"></i>
                     </span>
                 </div>
             </div>
         </div>
-        <hr>
+        <hr class="border-gray-300">
     @endforeach
-</div>
+    </section>
