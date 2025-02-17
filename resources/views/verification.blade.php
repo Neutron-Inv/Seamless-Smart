@@ -70,27 +70,27 @@
     </div>
 
     <div class="space-y-2">
-        <div class="flex justify-center items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
           <span class="text-sm text-gray-600">Survey Title:</span>
           <span class="text-sm text-gray-900 font-medium">{{$project->name}}</span>
         </div>
-        <div class="flex justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md">
+        <div class="flex justify-between md:justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md">
           <span class="text-sm text-gray-600">Address:</span>
-          <span class="text-sm text-gray-900 font-medium">{{$project->address}}</span>
+          <span class="text-sm text-gray-900 font-medium text-right md:text-center">{{$project->address}}</span>
         </div>
-        <div class="flex justify-center items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
           <span class="text-sm text-gray-600">Registered by:</span>
           <span class="text-sm text-gray-900 font-medium">{{$project->registered_by}}</span>
         </div>
-        <div class="flex justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md">
+        <div class="flex justify-between md:justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md">
           <span class="text-sm text-gray-600">Area:</span>
           <span class="text-sm text-gray-900 font-medium">{{$project->area .' '.$project->unit}}</span>
         </div>
-        <div class="flex justify-center items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
           <span class="text-sm text-gray-600">Status:</span>
           <span class="text-sm text-gray-900 font-medium">{{$project->status}}</span>
         </div>
-        <div class="flex justify-center items-center bg-white p-4 rounded-lg shadow-md">
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
             <span class="text-sm text-gray-600">Date Registered:</span>
             <span class="text-sm text-gray-900 font-medium">{{$project->date_registered}}</span>
           </div>
@@ -103,7 +103,7 @@
             pdf.getPage(1).then(page => {
                 const canvas = document.getElementById('pdf-viewer');
                 const context = canvas.getContext('2d');
-                const viewport = page.getViewport({ scale: 1 });
+                const viewport = page.getViewport({ scale: 10 });
 
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
