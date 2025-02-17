@@ -1,4 +1,4 @@
-<div class="bg-cover bg-center px-5 sm:px-10 py-8 space-y-10 font-raleway"
+<div class="bg-cover bg-center px-5 sm:px-24 py-8 space-y-10 font-raleway"
      data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
      style="background-image: url('{{ asset('/storage/images/footerbg.png') }}');">
     

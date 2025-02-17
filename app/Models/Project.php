@@ -23,7 +23,7 @@ class Project extends Model
             }
     
             // ✅ Move File to Project Folder if needed
-            self::moveFileToProjectFolder($project);
+            //self::moveFileToProjectFolder($project);
     
             // ✅ Generate and Save QR Code only if not already set
             if (!$project->qr_code) {
@@ -35,9 +35,10 @@ class Project extends Model
         // ✅ Delete Folder When Project is Deleted
     static::deleting(function ($project) {
         $folderPath = "projects/{$project->uuid}";
-
+        $planpath = $project->plan_file;
         if (Storage::disk('public')->exists($folderPath)) {
             Storage::disk('public')->deleteDirectory($folderPath);
+            Storage::disk('public')->delete($planpath);
         }
     });
     }

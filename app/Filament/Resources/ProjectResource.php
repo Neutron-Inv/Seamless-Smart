@@ -74,12 +74,33 @@ class ProjectResource extends Resource
                 ->visible(fn($record) => !is_null($record)),
 
             FileUpload::make('plan_file')
-                ->label('Upload Plan PDF')
-                ->disk('public')
-                ->preserveFilenames()
+                ->disk('public') // Define the storage disk
+                ->directory(function ($livewire) {
+                    $uuid = $livewire->data['uuid'] ?? 'null';
+                    return "projects/{$uuid}";
+                }) // Move to project folder
+                ->moveFiles() // Move from temp after saving
+                ->preserveFilenames() // Keep original filename
+                ->storeFileNamesIn('plan_file_name') // Save filename in DB
                 ->acceptedFileTypes(['application/pdf'])
-                ->storeFileNamesIn('plan_file') // Store filename in DB
-                ->downloadable(),
+                ->downloadable()
+                ->openable()
+                ->getUploadedFileNameForStorageUsing(function ($file, $livewire) {
+                    // Get project title (or another field from the form)
+                    $projectTitle = $livewire->data['plan_no'] ?? 'plan_id';
+            
+                    // Slugify the title to make it safe for filenames
+                    $slug = Str::slug($projectTitle);
+            
+                    // Add timestamp to prevent duplicate names
+                    $timestamp = now()->timestamp;
+            
+                    // Keep original extension
+                    $extension = $file->getClientOriginalExtension();
+            
+                    // Generate new filename
+                    return "{$slug}_{$timestamp}.{$extension}";
+                }),
         ]);
     }
 
