@@ -40,7 +40,7 @@
                     ['icon' => 'fas fa-chart-pie', 'title' => 'Data-Driven Insights', 'desc' => 'We transform raw data into actionable intelligence, empowering better decision-making.', 'delay' => '700']
                 ];
             @endphp
-
+ 
             @foreach ($features as $feature)
                 <div class="rounded-2xl bg-white flex flex-col p-6 space-y-4 transition-all duration-500 transform hover:scale-105 hover:shadow-lg" 
                      data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $feature['delay'] }}">
