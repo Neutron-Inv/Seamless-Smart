@@ -31,7 +31,7 @@
                 <li class="flex items-center">✅ <span class="ml-2 text-gray-700">Reduced survey time and operational costs</span></li>
             </ul>
 
-            <button class="mt-6 bg-[#93bc32] rounded-full py-2 px-6 text-sm md:text-lg transition-colors duration-300 hover:bg-[#c6ff41]">
+            <button @click="open = true" class="mt-6 bg-[#93bc32] rounded-full py-2 px-6 text-sm md:text-lg transition-colors duration-300 hover:bg-[#c6ff41]">
                 Request a Survey
             </button>
         </div>

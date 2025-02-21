@@ -1,8 +1,8 @@
 <header id="navbar" class="fixed top-0 max-w-[100vw] left-0 w-full z-50 transition-all duration-300 text-white bg-transparent">
     <div class="w-full max-w-[100vw] mx-auto flex items-center justify-between py-4 px-4 md:px-6">
         <!-- Logo -->
-        <a href="#">
-            <img src="{{ asset('/storage/images/logo.png') }}" alt="Logo" class="h-16 md:h-20">
+        <a href="{{route('home')}}">
+            <img id="logo" src="{{ asset('/storage/images/logo-light.png') }}" alt="Logo" class="h-16 md:h-20">
         </a>
 
         <!-- Desktop Nav -->
@@ -34,6 +34,7 @@
     const navbar = document.getElementById("navbar");
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
+    const logo = document.getElementById("logo");
 
     window.addEventListener("scroll", function () {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -41,9 +42,11 @@
         if (scrollTop > 50) {
             navbar.classList.add("bg-white", "shadow-md", "text-black");
             navbar.classList.remove("bg-transparent", "text-white");
+            logo.src = "{{ asset('/storage/images/logo.png') }}"; // Dark mode logo
         } else {
             navbar.classList.add("bg-transparent", "text-white");
             navbar.classList.remove("bg-white", "shadow-md", "text-black");
+            logo.src = "{{ asset('/storage/images/logo-light.png') }}"; // Light mode logo
         }
 
         if (scrollTop < lastScrollTop) {

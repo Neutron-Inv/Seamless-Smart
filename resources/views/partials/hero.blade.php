@@ -36,7 +36,7 @@
     <!-- CTA Section -->
     <div class="text-center flex flex-col items-center space-y-2">
         <p class="text-white font-raleway text-sm md:text-base">Get a Free Consultation</p>
-        <button class="bg-[#93bc32] rounded-full py-2 px-6 text-sm md:text-lg transition-colors duration-300 hover:bg-[#c6ff41]">
+        <button @click="open = true" class="bg-[#93bc32] rounded-full py-2 px-6 text-sm md:text-lg transition-colors duration-300 hover:bg-[#c6ff41]">
             Contact Us
         </button>
     </div>
