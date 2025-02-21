@@ -21,3 +21,4 @@ Route::get('/projects/download-qr/{project}', function ($projectId) {
 
 Route::get('/project/verify/{uuid}', [VerifyController::class, 'index'])->name('project.verify');
 Route::get('/services/{service}', [VerifyController::class, 'service'])->name('services');
+Route::post('/contact/send', [VerifyController::class, 'sendContactForm'])->name('contact.send');

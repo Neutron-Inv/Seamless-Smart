@@ -60,7 +60,7 @@
 
     <!-- Header with Logo and Title -->
     <div class="header flex gap-4 md:gap-10">
-        <img src="{{ url('storage/images/logo.png') }}" alt="Seamless Smart" class="h-16"> 
+        <img src="{{ url('storage/images/logo-light.png') }}" alt="Seamless Smart" class="h-16"> 
         <span class="font-raleway text-right md:text-center text-md md:text-3xl">Seamless Verification System</span>
     </div>
 
@@ -70,30 +70,30 @@
     </div>
 
     <div class="space-y-2">
-        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
-          <span class="text-sm text-gray-600">Survey Title:</span>
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md space-x-2">
+          <span class="text-sm text-gray-600 font-bold">Survey Title: </span>
           <span class="text-sm text-gray-900 font-medium">{{$project->name}}</span>
         </div>
-        <div class="flex justify-between md:justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md">
-          <span class="text-sm text-gray-600">Address:</span>
+        <div class="flex justify-between md:justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md space-x-2">
+          <span class="text-sm text-gray-600 font-bold">Address: </span>
           <span class="text-sm text-gray-900 font-medium text-right md:text-center">{{$project->address}}</span>
         </div>
-        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
-          <span class="text-sm text-gray-600">Registered by:</span>
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md space-x-2">
+          <span class="text-sm text-gray-600 font-bold">Registered by: </span>
           <span class="text-sm text-gray-900 font-medium">{{$project->registered_by}}</span>
         </div>
-        <div class="flex justify-between md:justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md">
-          <span class="text-sm text-gray-600">Area:</span>
+        <div class="flex justify-between md:justify-center items-center bg-gray-50 p-4 rounded-lg shadow-md space-x-2">
+          <span class="text-sm text-gray-600 font-bold">Area: </span>
           <span class="text-sm text-gray-900 font-medium">{{$project->area .' '.$project->unit}}</span>
         </div>
-        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
-          <span class="text-sm text-gray-600">Status:</span>
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md space-x-2">
+          <span class="text-sm text-gray-600 font-bold">Status: </span>
           <span class="text-sm text-gray-900 font-medium">{{$project->status}}</span>
         </div>
-        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md">
-            <span class="text-sm text-gray-600">Date Registered:</span>
+        <div class="flex justify-between md:justify-center items-center bg-white p-4 rounded-lg shadow-md space-x-2">
+            <span class="text-sm text-gray-600 font-bold">Date Registered: </span>
             <span class="text-sm text-gray-900 font-medium">{{$project->date_registered}}</span>
-          </div>
+        </div>
       </div>
       
     <script>
@@ -123,6 +123,15 @@
             }
         }
     </script>
+
+<footer class="w-full bg-gray-900 text-white text-center py-4">
+    <p class="text-sm">
+        &copy; {{ date('Y') }} Seamless Smart Consult. All rights reserved.
+    </p>
+    <p class="text-sm mt-1">
+        Developed by <a href="https://www.linkedin.com/company/virtual-horizons-ng/" class="text-[#93bc32] hover:underline">Virtual Horizons</a>
+    </p>
+</footer>
 
 </body>
 </html>

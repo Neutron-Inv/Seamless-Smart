@@ -14,6 +14,18 @@
     <div id="app" class="flex min-h-screen max-w-[100vw]">
         @include('partials.navbar')
         <div class="max-w-[100vw]">
+            @if(session('success'))
+                <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" 
+                    x-show="show" 
+                    class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500"
+                    x-transition:enter="opacity-0 transform translate-y-2"
+                    x-transition:enter-start="opacity-0 transform translate-y-2"
+                    x-transition:enter-end="opacity-100 transform translate-y-0"
+                    x-transition:leave="opacity-100"
+                    x-transition:leave-end="opacity-0">
+                    {{ session('success') }}
+                </div>
+            @endif
             @yield('content') {{-- Page-specific content --}}
         </div>
     </div>
@@ -44,10 +56,11 @@
             <p class="text-sm text-gray-600 mb-4">Fill in the form below, and we’ll get back to you shortly.</p>
             
             <!-- Contact Form -->
-            <form>
-                <input type="text" placeholder="Your Name" class="w-full border p-2 rounded mb-3">
-                <input type="email" placeholder="Your Email" class="w-full border p-2 rounded mb-3">
-                <textarea placeholder="Your Message" class="w-full border p-2 rounded mb-3"></textarea>
+            <form action="{{ route('contact.send') }}" method="POST">
+                @csrf
+                <input type="text" name="name" placeholder="Your Name" class="w-full border p-2 rounded mb-3" required>
+                <input type="email" name="email" placeholder="Your Email" class="w-full border p-2 rounded mb-3" required>
+                <textarea name="message" placeholder="Your Message" class="w-full border p-2 rounded mb-3" required></textarea>
                 <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Send Message</button>
             </form>
         </div>

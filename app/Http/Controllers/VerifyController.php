@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 class VerifyController extends Controller
 {
 
@@ -76,6 +77,31 @@ class VerifyController extends Controller
 
     return view('services', compact('service'));
 }
+
+    public function sendContactForm(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'name'    => 'required|string|max:255',
+            'email'   => 'required|email',
+            'message' => 'required|string',
+        ]);
+
+        // Email details
+        $data = [
+            'name'    => $request->input('name'),
+            'email'   => $request->input('email'),
+            'messageContent' => $request->input('message'),
+        ];
+
+        // Send email
+        Mail::send('emails.contact', $data, function ($message) use ($data) {
+            $message->to('jackomega.idnoble@gmail.com') // Change this to your recipient email
+                    ->subject('New Contact Form Submission from ' . $data['name']);
+        });
+
+        return back()->with('success', 'Your message has been sent successfully!');
+    }
 
 
 }

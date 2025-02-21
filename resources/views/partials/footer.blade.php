@@ -69,7 +69,7 @@
     <!-- Copyright & Credits -->
     <div class="flex flex-col sm:flex-row justify-between text-center sm:text-left text-sm text-gray-400">
         <span>Copyright &copy; Seamless Smart {{ date('Y') }}</span>
-        <span>Developed by Virtual Horizons</span>
+        <span>Developed by <a href="https://www.linkedin.com/company/virtual-horizons-ng/" class="underline">Virtual Horizons </a></span>
     </div>
 
 </div>

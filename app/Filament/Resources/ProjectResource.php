@@ -43,9 +43,9 @@ class ProjectResource extends Resource
 
             Select::make('unit')
                 ->options([
-                    'meters' => 'Meters',
-                    'feet' => 'Feet',
+                    'sqmts' => 'Sqmts',
                     'acres' => 'Acres',
+                    'hectares' => 'Hectares',
                 ])
                 ->required(),
 
@@ -55,8 +55,9 @@ class ProjectResource extends Resource
 
             Select::make('status')
                 ->options([
-                    'pending' => 'Pending',
-                    'approved' => 'Approved',
+                    'Certified True Copy' => 'Certified True Copy',
+                    'Provisional Copy' => 'Provisional Copy',
+                    'Pending' => 'Pending',
                     'rejected' => 'Rejected',
                 ])
                 ->default('pending')
