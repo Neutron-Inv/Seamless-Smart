@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
-<body>
-    <div id="app" class="flex min-h-screen max-w-screen">
+<body class="max-w-[100vw]">
+    <div id="app" class="flex min-h-screen max-w-[100vw]">
         @include('partials.navbar')
-        <div class="w-[100vw]">
+        <div class="max-w-[100vw]">
             @yield('content') {{-- Page-specific content --}}
         </div>
     </div>
 
 
 <!-- Contact Us Modal (Place this at the end of <body>) -->
-    <div x-data="{ open: false }">
+    <div x-data="{ open: false }" class="max-w-[100vw]">
         <div x-show="open" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" x-cloak>
             <div class="bg-white rounded-lg p-6 w-11/12 sm:w-1/2 lg:w-1/3 shadow-lg relative">
                 <!-- Close Button -->

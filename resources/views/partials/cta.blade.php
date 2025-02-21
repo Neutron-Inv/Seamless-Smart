@@ -64,7 +64,7 @@
         <p class="text-xs text-gray-200">
             Get in touch today to explore tailored geospatial solutions for your project.
         </p>
-        <a href="javascript:void(0);" @click="open = true" class="bg-[#afdf34] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-green-700 transition-all w-full sm:w-auto inline-block">
+        <a href="javascript:void(0);" @click="open = true" class="bg-[#afdf34] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-green-700 transition-all w-auto sm:w-auto inline-block">
             Contact Us
         </a>
         

@@ -1,6 +1,15 @@
-<section id="home" class="hero bg-cover bg-center min-h-screen md:h-[160vh] w-full flex flex-col justify-center items-center text-center px-6 py-20" 
-     style="background-image: url('{{ asset('/storage/images/bg.webp') }}');">
-    
+<section id="home" class="hero relative min-h-screen md:h-[160vh] w-full flex flex-col justify-center items-center text-center px-6 py-20 overflow-hidden">
+
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-[-1]">
+        <source src="{{ asset('/storage/images/hero-video.mp4') }}" type="video/mp4">
+        <!-- Fallback Image -->
+        <img src="{{ asset('/storage/images/bg.webp') }}" class="absolute inset-0 w-full h-full object-cover" alt="Fallback Background">
+    </video>
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-[-1]"></div>
+
     <h1 class="text-3xl md:text-[45px] font-raleway font-bold text-white leading-tight">
         Precision. Innovation. Excellence in <br/>
         <span class="bg-gradient-to-r from-[#bdff13] via-90% to-[#e4d814] to-90% bg-clip-text text-transparent">

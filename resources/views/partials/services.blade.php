@@ -18,14 +18,14 @@
 
     @php
         $services = [
-            ['title' => 'Cadastral Surveying', 'image' => 'cadastral.jpg', 'desc' => 'We conduct precise boundary mapping, land subdivision, and title registration to ensure legal land ownership and compliance with regulatory authorities.'],
-            ['title' => 'Topographical Surveying', 'image' => 'topo.jpg', 'desc' => 'We provide high-accuracy contour and elevation mapping for construction, infrastructure, and environmental projects.'],
-            ['title' => 'Engineering Surveys', 'image' => 'engr.jpg', 'desc' => 'Providing critical geospatial data for infrastructure projects, ensuring compliance with design specifications and safety standards.'],
-            ['title' => 'Drone (UAV) Surveys', 'image' => 'drone.jpg', 'desc' => 'Capturing high-resolution aerial data for land mapping, site monitoring, and environmental assessments using Unmanned Aerial Vehicles.'],
-            ['title' => 'Drone Data Processing', 'image' => 'dronedata.png', 'desc' => 'Converting raw aerial imagery into actionable geospatial insights, including 3D models, orthophotos, and volumetric calculations.'],
-            ['title' => 'Bathymetric Surveys', 'image' => 'bathy.jpg', 'desc' => 'Mapping underwater terrain using sonar and GPS technology to support marine construction, dredging, and environmental studies.'],
-            ['title' => 'Geospatial Data Visualization & Analysis', 'image' => 'gis.png', 'desc' => 'Transforming raw spatial data into interactive maps, dashboards, and reports to support planning, monitoring, and decision-making.'],
-            ['title' => 'Photogrammetry & Spatial Data Management', 'image' => 'photo.jpeg', 'desc' => 'Utilizing advanced imaging techniques to generate accurate 3D models, maps, and geospatial datasets for analysis and decision-making.'],
+            ['title' => 'Cadastral Surveying', 'image' => 'cadastral.jpg', 'desc' => 'We conduct precise boundary mapping, land subdivision, and title registration to ensure legal land ownership and compliance with regulatory authorities.', 'slug' => 'cadastral-survey'],
+            ['title' => 'Topographical Surveying', 'image' => 'topo.jpg', 'desc' => 'We provide high-accuracy contour and elevation mapping for construction, infrastructure, and environmental projects.', 'slug' => 'topographical-survey'],
+            ['title' => 'Engineering Surveys', 'image' => 'engr.jpg', 'desc' => 'Providing critical geospatial data for infrastructure projects, ensuring compliance with design specifications and safety standards.', 'slug' => 'engineering-survey'],
+            ['title' => 'Drone (UAV) Surveys', 'image' => 'drone.jpg', 'desc' => 'Capturing high-resolution aerial data for land mapping, site monitoring, and environmental assessments using Unmanned Aerial Vehicles.', 'slug' => 'drone-uav-survey'],
+            ['title' => 'Drone Data Processing', 'image' => 'dronedata.png', 'desc' => 'Converting raw aerial imagery into actionable geospatial insights, including 3D models, orthophotos, and volumetric calculations.', 'slug' => 'drone-data-processing'],
+            ['title' => 'Bathymetric Surveys', 'image' => 'bathy.jpg', 'desc' => 'Mapping underwater terrain using sonar and GPS technology to support marine construction, dredging, and environmental studies.', 'slug' => 'bathymetry-survey'],
+            ['title' => 'Geospatial Data Visualization & Analysis', 'image' => 'gis.png', 'desc' => 'Transforming raw spatial data into interactive maps, dashboards, and reports to support planning, monitoring, and decision-making.', 'slug' => 'geospatial-visualization'],
+            ['title' => 'Photogrammetry & Spatial Data Management', 'image' => 'photo.jpeg', 'desc' => 'Utilizing advanced imaging techniques to generate accurate 3D models, maps, and geospatial datasets for analysis and decision-making.', 'slug' => 'photogrammetry-spatial-data'],
         ];
     @endphp
 
@@ -43,9 +43,11 @@
                 <!-- Description & Icon -->
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-2 text-center md:text-left">
                     <p class="text-sm text-gray-400">{{ $service['desc'] }}</p>
-                    <span class="border-[1px] rounded-full border-gray-300 hover:border-green-500 transition-all duration-400 transform hover:scale-110 p-2">
-                        <i class="fas fa-arrow-right text-gray-700 text-xl transition-all duration-600 hover:-rotate-45"></i>
-                    </span>
+                    <a href="{{route('services', $service['slug'])}}">
+                        <span class="border-[1px] rounded-full border-gray-300 hover:border-green-500 transition-all duration-400 transform hover:scale-110 p-2">
+                            <i class="fas fa-arrow-right text-gray-700 text-xl transition-all duration-600 hover:-rotate-45"></i> 
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
-<header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 text-white bg-transparent">
-    <div class="w-full max-w-7xl mx-auto flex items-center justify-between py-4 px-4 md:px-6">
+<header id="navbar" class="fixed top-0 max-w-[100vw] left-0 w-full z-50 transition-all duration-300 text-white bg-transparent">
+    <div class="w-full max-w-[100vw] mx-auto flex items-center justify-between py-4 px-4 md:px-6">
         <!-- Logo -->
         <a href="#">
             <img src="{{ asset('/storage/images/logo.png') }}" alt="Logo" class="h-16 md:h-20">
@@ -7,7 +7,7 @@
 
         <!-- Desktop Nav -->
         <nav class="hidden md:flex space-x-6 w-full justify-end">
-            <a href="#home" class="font-medium hover:text-[#93bc32] transition">Home</a>
+            <a href="{{route('home')}}" class="font-medium hover:text-[#93bc32] transition">Home</a>
             <a href="#about" class="font-medium hover:text-[#93bc32] transition">About</a>
             <a href="#services" class="font-medium hover:text-[#93bc32] transition">Services</a>
             <a href="#faq" class="font-medium hover:text-[#93bc32] transition">FAQ</a>

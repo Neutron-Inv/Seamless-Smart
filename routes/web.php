@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Response;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('home');
 
 Route::get('/projects/download-qr/{project}', function ($projectId) {
     $project = \App\Models\Project::findOrFail($projectId);
@@ -20,3 +20,4 @@ Route::get('/projects/download-qr/{project}', function ($projectId) {
 })->name('projects.download_qr');
 
 Route::get('/project/verify/{uuid}', [VerifyController::class, 'index'])->name('project.verify');
+Route::get('/services/{service}', [VerifyController::class, 'service'])->name('services');

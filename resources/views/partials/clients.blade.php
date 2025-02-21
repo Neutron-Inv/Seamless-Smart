@@ -1,4 +1,4 @@
-<section id="about" class="px-6 md:px-20 py-14 space-y-14">
+<section id="about" class="px-6 md:px-20 py-14 space-y-14 max-w-[100vw]">
     <!-- Header Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-stretch text-center md:text-left" data-aos="fade-up" data-aos-duration="800">
         <div class="justify-self-center md:justify-self-start">
@@ -41,7 +41,7 @@
                 ];
             @endphp
  
- 
+
             @foreach ($features as $feature)
                 <div class="rounded-2xl bg-white flex flex-col p-6 space-y-4 transition-all duration-500 transform hover:scale-105 hover:shadow-lg" 
                      data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $feature['delay'] }}">
