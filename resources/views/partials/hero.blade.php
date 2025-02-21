@@ -27,7 +27,7 @@
         <div class="flex justify-center">
             <img src="{{ asset('/storage/images/hero1.webp') }}" class="w-2/3 md:w-full max-w-[250px]">
         </div>    
-        <div class="flex justify-center">
+        <div class="hidden md:flex justify-center">
             <img src="{{ asset('/storage/images/hero2.webp') }}" class="w-2/3 md:w-full max-w-[250px]">
         </div>    
         <div class="hidden md:block"></div>    

@@ -1,4 +1,4 @@
-<section id="services" class="px-4 md:px-20 py-4 space-y-14 font-raleway">
+<section id="services" class="max-w-[100vw] px-4 md:px-20 py-4 space-y-14 font-raleway">
     <!-- Header Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-stretch text-center md:text-left">
         <div class="justify-self-center md:justify-self-start" data-aos="fade-right">
