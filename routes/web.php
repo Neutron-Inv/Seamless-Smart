@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Response;
 Route::get('/', function () {
     return view('landing');
 })->name('home');
-
+ 
 Route::get('/projects/download-qr/{project}', function ($projectId) {
     $project = \App\Models\Project::findOrFail($projectId);
 
