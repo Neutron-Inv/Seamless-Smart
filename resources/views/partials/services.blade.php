@@ -1,7 +1,8 @@
-<section id="services" class="max-w-[100vw] px-4 md:px-20 py-4 space-y-14 font-raleway">
+<section id="services" class="max-w-full px-4 md:px-20 py-4 space-y-14 font-raleway">
     <!-- Header Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-stretch text-center md:text-left">
-        <div class="justify-self-center md:justify-self-start" data-aos="fade-right">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-stretch text-center md:text-left"
+        data-aos="fade-right">
+        <div class="justify-self-center md:justify-self-start">
             <h2 class="font-[600] text-3xl md:text-4xl leading-tight">
                 Delivering <br /> Exceptional Surveying Solutions
             </h2>
@@ -15,7 +16,7 @@
         </div>
     </div>
 
-    <hr class="border-gray-300">
+    <hr class="border-gray-300 w-full">
 
     @php
         $services = [
@@ -84,7 +85,7 @@
                 <!-- Image -->
                 <div class="flex justify-center">
                     <img src="{{ asset('/storage/images/services/' . $service['image']) }}"
-                        class="rounded-2xl h-40 w-10/12 object-cover object-top">
+                        class="rounded-2xl h-40 w-10/12 max-w-full object-cover object-top">
                 </div>
                 <!-- Title -->
                 <div class="text-center md:text-left">
@@ -104,6 +105,6 @@
                 </div>
             </div>
         </div>
-        <hr class="border-gray-300">
+        <hr class="border-gray-300 w-full">
     @endforeach
 </section>
