@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\DatePicker;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-
+use Filament\Forms\Components\TagsInput;
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
@@ -50,7 +50,12 @@ class ProjectResource extends Resource
                 ->required(),
 
             TextInput::make('no_pillars')->nullable(),
-            TextInput::make('pillar_nos')->nullable(),
+            TagsInput::make('pillar_nos')
+                    ->placeholder('Enter pillar numbers')
+                    ->separator(',') // Optional: Define the separator
+                    ->suggestions(['Pillar1', 'Pillar2', 'Pillar3']) // Optional: Provide predefined suggestions
+                    ->nullable(),
+                    
             TextInput::make('plan_no')->required(),
 
             Select::make('status')
