@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\DatePicker;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Repeater;
+
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
@@ -37,8 +39,8 @@ class ProjectResource extends Resource
             TextInput::make('name')->required(),
             Textarea::make('address')->nullable(),
             TextInput::make('scale')->nullable(),
-            TextInput::make('eastings')->nullable(),
-            TextInput::make('northings')->nullable(),
+            // TextInput::make('eastings')->nullable(),
+            // TextInput::make('northings')->nullable(),
             TextInput::make('area')->nullable(),
 
             Select::make('unit')
@@ -50,12 +52,30 @@ class ProjectResource extends Resource
                 ->required(),
 
             TextInput::make('no_pillars')->nullable(),
-            TagsInput::make('pillar_nos')
-                    ->placeholder('Enter pillar numbers')
-                    ->separator(',') // Optional: Define the separator
-                    ->suggestions(['Pillar1', 'Pillar2', 'Pillar3']) // Optional: Provide predefined suggestions
-                    ->nullable(),
-                    
+            Repeater::make('pillar_nos')
+                ->label('Pillar Details')
+                ->schema([
+                    TextInput::make('pillar_number')
+                        ->label('Pillar Number')
+                        ->required(),
+
+                    TextInput::make('eastings')
+                        ->label('Eastings')
+                        ->numeric()
+                        ->required(),
+
+                    TextInput::make('northing')
+                        ->label('Northing')
+                        ->numeric()
+                        ->required(),
+                ])
+                ->collapsible() // Allows collapsing rows
+                ->addActionLabel('Add Pillar') // Custom label for the "Add" button
+                ->defaultItems(1) // Starts with one row by default
+                ->grid(3) // Arrange fields in 3 columns
+                ->columnSpanFull() // Makes it full width
+                ->nullable(),
+
             TextInput::make('plan_no')->required(),
 
             Select::make('status')
@@ -94,22 +114,22 @@ class ProjectResource extends Resource
                 ->getUploadedFileNameForStorageUsing(function ($file, $livewire) {
                     // Get project title (or another field from the form)
                     $projectTitle = $livewire->data['plan_no'] ?? 'plan_id';
-            
+
                     // Slugify the title to make it safe for filenames
                     $slug = Str::slug($projectTitle);
-            
+
                     // Add timestamp to prevent duplicate names
                     $timestamp = now()->timestamp;
-            
+
                     // Keep original extension
                     $extension = $file->getClientOriginalExtension();
-            
+
                     // Generate new filename
                     return "{$slug}_{$timestamp}.{$extension}";
                 }),
         ]);
     }
- 
+
     public static function table(Table $table): Table
     {
         return $table->columns([
@@ -120,15 +140,15 @@ class ProjectResource extends Resource
             TextColumn::make('registered_by')->sortable(),
             TextColumn::make('qr_code')->label('QR Code')->copyable(),
         ])
-        ->filters([])
-        ->actions([
-            Tables\Actions\EditAction::make(),
-        ])
-        ->bulkActions([
-            Tables\Actions\BulkActionGroup::make([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]),
-        ]);
+            ->filters([])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
     }
 
     public static function getPages(): array

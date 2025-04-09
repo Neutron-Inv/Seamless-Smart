@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('area')->nullable();
             $table->string('unit')->nullable();
             $table->string('no_pillars')->nullable();
-            $table->string('pillar_nos')->nullable();
+            $table->json('pillar_nos')->nullable();
             $table->string('plan_no');
             $table->string('status')->nullable();
             $table->string('date_registered');
